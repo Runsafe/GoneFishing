@@ -1,10 +1,9 @@
 name: GoneFishing
 main: no.runsafe.gonefishing.GoneFishing
 version: 1.0.@BUILD@
-authors: []
-depend: []
-description:
+author: Kruithne
+description: Fishing Tournament plug-in!
 commands:
-  something:
-    description:
-    aliases: []
+  gonefishing:
+    description: Fishing Tournament commands.
+    aliases: [gf]

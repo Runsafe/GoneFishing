@@ -1,1 +1,11 @@
-option: value
+stepCount: 6
+stepLength: 600
+startingMessage: '&3The fishing tournament at spawn is starting in <time> minutes!'
+startedMessage: '&aThe fishing tournament at spawn has started! The first player to catch 40 Tastyfish at spawn will win!'
+eventLength: 3600
+concludeNoWinnerMessage: '&3The fishing tournament has ended with no winner!'
+concludeMessage: '<player> &ahas won the fishing tournament!'
+lootDropChance: 50
+eventDropChance: 70
+fishToWin: 10
+eventWorld: spawn
