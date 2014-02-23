@@ -24,6 +24,9 @@ public class LootHandler implements IPlayerFishEvent
 	@Override
 	public void OnPlayerFish(RunsafePlayerFishEvent event)
 	{
+		if (event.getCaught() == null)
+			return;
+
 		IPlayer player = event.getPlayer();
 		int ran = random.nextInt(100);
 		if (ran < config.getDropChance())
