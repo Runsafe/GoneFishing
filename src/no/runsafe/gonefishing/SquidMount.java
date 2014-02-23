@@ -31,7 +31,7 @@ public class SquidMount extends EntityPig
 	}
 
 	@Override
-	public void e(float f, float f1)
+	public void e()
 	{
 		ILocation playerLocation = player.getLocation();
 		if (player.isDead() || !player.isOnline() || passenger == null || playerLocation == null || !passenger.getName().equals(player.getName()))
@@ -40,6 +40,15 @@ public class SquidMount extends EntityPig
 			return;
 		}
 
+		if (!this.M())
+			damageEntity(DamageSource.DROWN, 2.0F);
+
+		super.e();
+	}
+
+	@Override
+	public void e(float f, float f1)
+	{
 		X = 1F;
 		lastYaw = yaw = passenger.yaw;
 		pitch = passenger.pitch * 0.5F;
@@ -57,6 +66,45 @@ public class SquidMount extends EntityPig
 		i(0.5F);
 		super.e(f, f1);
 	}
+
+	@Override
+	protected String t()
+	{
+		return null;
+	}
+
+	@Override
+	protected String aT()
+	{
+		return null;
+	}
+
+	@Override
+	protected String aU()
+	{
+		return null;
+	}
+
+	@Override
+	protected void a(int i, int j, int k, Block block)
+	{
+		// Do nothing.
+	}
+
+	@Override
+	public void a(EntityLightning entitylightning)
+	{
+		// Do nothing.
+	}
+
+	@Override
+	public boolean a(EntityHuman entityhuman)
+	{
+		// We don't want people doing this.
+		return false;
+	}
+
+
 
 	private final IPlayer player;
 }
