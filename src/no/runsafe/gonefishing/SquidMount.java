@@ -76,7 +76,7 @@ public class SquidMount extends EntityPig
 			f1 *= 0.25F;
 
 		f *= 0.75F;
-		i(0.8F);
+		i(0F);
 		super.e(f, f1);
 	}
 
