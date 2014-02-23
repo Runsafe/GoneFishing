@@ -33,6 +33,7 @@ public class SquidMount extends EntitySquid
 		// Do nothing, we don't want loot.
 	}
 
+
 	@Override
 	public void e()
 	{
@@ -45,7 +46,6 @@ public class SquidMount extends EntitySquid
 
 		Vector direction = playerLocation.getDirection();
 		this.motX = direction.getX();
-		this.motY = direction.getY();
 		this.motZ = direction.getZ();
 	}
 
