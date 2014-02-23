@@ -12,7 +12,7 @@ public class SkallyTesticle implements IFishingLootItem
 		{
 			item = Item.Miscellaneous.Slimeball.getItem();
 			item.setDisplayName("Skalamandar's Left Testicle");
-			item.addLore("&8Rather sticky and seems to bounce..");
+			item.addLore("§8Rather sticky and seems to bounce..");
 			item.setAmount(1);
 		}
 		return item;

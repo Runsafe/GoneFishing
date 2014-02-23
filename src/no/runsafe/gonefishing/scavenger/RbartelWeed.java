@@ -12,7 +12,7 @@ public class RbartelWeed implements IFishingLootItem
 		{
 			item = Item.Decoration.LongGrass.getItem();
 			item.setDisplayName("Rbartel's Lost Weed");
-			item.addLore("With added seaweed flavour!");
+			item.addLore("§8With added seaweed flavour!");
 			item.setAmount(1);
 		}
 		return item;

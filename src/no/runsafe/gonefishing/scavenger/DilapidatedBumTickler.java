@@ -13,7 +13,7 @@ public class DilapidatedBumTickler implements IFishingLootItem
 			item = Item.Combat.Sword.Wood.getItem();
 			item.setDurability((short) 70);
 			item.setDisplayName("Dilapidated Bum Tickler");
-			item.addLore("&8This has definitely seen better days.");
+			item.addLore("§8This has definitely seen better days.");
 			item.setAmount(1);
 		}
 		return item;

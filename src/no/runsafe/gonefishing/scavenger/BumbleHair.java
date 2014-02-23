@@ -12,7 +12,7 @@ public class BumbleHair implements IFishingLootItem
 		{
 			item = Item.Materials.String.getItem();
 			item.setDisplayName("Bleached Strand of Bumble's Belly Hair");
-			item.addLore("&8This has been underwater for far too long.");
+			item.addLore("§8This has been underwater for far too long.");
 			item.setAmount(1);
 		}
 		return item;

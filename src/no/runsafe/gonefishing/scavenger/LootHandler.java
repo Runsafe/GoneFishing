@@ -47,7 +47,7 @@ public class LootHandler implements IPlayerFishEvent
 		{
 			eventFish = Item.Food.Meat.Fish.Clownfish.getItem();
 			eventFish.setDisplayName("Tastyfish");
-			eventFish.addLore("&8Just looking at it makes you drool!");
+			eventFish.addLore("§8Just looking at it makes you drool!");
 			eventFish.setAmount(1);
 		}
 		return eventFish;
