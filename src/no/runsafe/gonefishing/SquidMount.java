@@ -40,7 +40,7 @@ public class SquidMount extends EntityPig
 			return;
 		}
 
-		X = 0.5F;
+		X = 1F;
 		lastYaw = yaw = passenger.yaw;
 		pitch = passenger.pitch * 0.5F;
 
@@ -54,7 +54,7 @@ public class SquidMount extends EntityPig
 			f1 *= 0.25F;
 
 		f *= 0.75F;
-		i(0.35F);
+		i(0.5F);
 		super.e(f, f1);
 	}
 
