@@ -40,9 +40,22 @@ public class SquidMount extends EntityPig
 			return;
 		}
 
-		if (!this.M())
-			damageEntity(DamageSource.DROWN, 2.0F);
+		int i = getAirTicks();
 
+		if (isAlive() && !M())
+		{
+			--i;
+			setAirTicks(i);
+			if (getAirTicks() == -20)
+			{
+				setAirTicks(0);
+				damageEntity(DamageSource.DROWN, 2.0F);
+			}
+		}
+		else
+		{
+			setAirTicks(300);
+		}
 		super.e();
 	}
 
