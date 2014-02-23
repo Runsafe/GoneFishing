@@ -1,15 +1,12 @@
 package no.runsafe.gonefishing;
 
-import net.minecraft.server.v1_7_R1.EntityBat;
-import net.minecraft.server.v1_7_R1.EntityLiving;
-import net.minecraft.server.v1_7_R1.EntityPlayer;
-import net.minecraft.server.v1_7_R1.World;
+import net.minecraft.server.v1_7_R1.*;
 import no.runsafe.framework.api.ILocation;
 import no.runsafe.framework.api.IWorld;
 import no.runsafe.framework.api.player.IPlayer;
 import no.runsafe.framework.internal.wrapper.ObjectUnwrapper;
 
-public class SquidMount extends EntityBat
+public class SquidMount extends EntityPig
 {
 	public SquidMount(IWorld world, IPlayer mounter)
 	{
