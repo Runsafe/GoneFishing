@@ -1,5 +1,6 @@
 package no.runsafe.gonefishing;
 
+import net.minecraft.server.v1_7_R1.EntityLiving;
 import net.minecraft.server.v1_7_R1.EntityPlayer;
 import net.minecraft.server.v1_7_R1.EntitySquid;
 import net.minecraft.server.v1_7_R1.World;
@@ -7,7 +8,6 @@ import no.runsafe.framework.api.ILocation;
 import no.runsafe.framework.api.IWorld;
 import no.runsafe.framework.api.player.IPlayer;
 import no.runsafe.framework.internal.wrapper.ObjectUnwrapper;
-import org.bukkit.util.Vector;
 
 public class SquidMount extends EntitySquid
 {
@@ -33,9 +33,8 @@ public class SquidMount extends EntitySquid
 		// Do nothing, we don't want loot.
 	}
 
-
 	@Override
-	public void e()
+	public void e(float f, float f1)
 	{
 		ILocation playerLocation = player.getLocation();
 		if (player.isDead() || !player.isOnline() || passenger == null || playerLocation == null || !passenger.getName().equals(player.getName()))
@@ -44,9 +43,22 @@ public class SquidMount extends EntitySquid
 			return;
 		}
 
-		Vector direction = playerLocation.getDirection();
-		this.motX = direction.getX();
-		this.motZ = direction.getZ();
+		X = 0.5F;
+		lastYaw = yaw = passenger.yaw;
+		pitch = passenger.pitch * 0.5F;
+
+		b(yaw, pitch);
+		aP = aN = yaw;
+
+		f = ((EntityLiving) passenger).be * 0.5f;
+		f1 = ((EntityLiving) passenger).bf;
+
+		if (f1 <= 0.0F)
+			f1 *= 0.25F;
+
+		f *= 0.75F;
+		i(0.35F);
+		super.e(f, f1);
 	}
 
 	private final IPlayer player;
