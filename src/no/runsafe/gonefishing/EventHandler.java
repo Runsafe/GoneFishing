@@ -3,16 +3,19 @@ package no.runsafe.gonefishing;
 import no.runsafe.framework.api.IScheduler;
 import no.runsafe.framework.api.IServer;
 import no.runsafe.framework.api.player.IPlayer;
+import no.runsafe.framework.minecraft.Item;
+import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
 import java.util.concurrent.ConcurrentHashMap;
 
 public class EventHandler
 {
-	public EventHandler(IScheduler scheduler, EventConfig config, IServer server)
+	public EventHandler(IScheduler scheduler, EventConfig config, IServer server, MountHandler mountHandler)
 	{
 		this.scheduler = scheduler;
 		this.config = config;
 		this.server = server;
+		this.mountHandler = mountHandler;
 	}
 
 	public void setupEvent()
@@ -68,6 +71,11 @@ public class EventHandler
 			// We have a winner! Woooo!
 			server.broadcastMessage(config.getConcludeMessage().replaceAll("<player>", winner.getPrettyName()));
 			new TournamentWinEvent(winner).Fire(); // Fire win event.
+			winner.give(mountHandler.getMountItem()); // Give the winner a squid mount.
+
+			RunsafeMeta loot = Item.Materials.Emerald.getItem();
+			loot.setAmount(10);
+			winner.give(loot);
 		}
 		progress.clear(); // Clear all progress.
 		stopEvent(); // Stop the event.
@@ -108,4 +116,5 @@ public class EventHandler
 	private final EventConfig config;
 	private final IServer server;
 	private final ConcurrentHashMap<String, Integer> progress = new ConcurrentHashMap<String, Integer>(0);
+	private final MountHandler mountHandler;
 }
