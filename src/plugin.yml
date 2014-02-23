@@ -1,0 +1,10 @@
+name: GoneFishing
+main: no.runsafe.gonefishing.GoneFishing
+version: 1.0.@BUILD@
+authors: []
+depend: []
+description:
+commands:
+  something:
+    description:
+    aliases: []
