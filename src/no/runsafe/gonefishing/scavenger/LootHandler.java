@@ -3,6 +3,7 @@ package no.runsafe.gonefishing.scavenger;
 import no.runsafe.framework.api.event.player.IPlayerFishEvent;
 import no.runsafe.framework.api.player.IPlayer;
 import no.runsafe.framework.minecraft.Item;
+import no.runsafe.framework.minecraft.entity.RunsafeEntity;
 import no.runsafe.framework.minecraft.entity.RunsafeItem;
 import no.runsafe.framework.minecraft.event.player.RunsafePlayerFishEvent;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
@@ -24,19 +25,20 @@ public class LootHandler implements IPlayerFishEvent
 	@Override
 	public void OnPlayerFish(RunsafePlayerFishEvent event)
 	{
-		if (event.getCaught() == null)
+		RunsafeEntity entity = event.getCaught();
+		if (entity == null || !(entity instanceof RunsafeItem))
 			return;
 
 		IPlayer player = event.getPlayer();
 		int ran = random.nextInt(100);
 		if (ran < config.getDropChance())
 		{
-			((RunsafeItem) event.getCaught()).setItemStack(items.get(random.nextInt(items.size())).getItem());
+			((RunsafeItem) entity).setItemStack(items.get(random.nextInt(items.size())).getItem());
 			new SpecialLootEvent(player).Fire(); // Fire an event!
 		}
 		else if (config.getEventWorld().isWorld(player.getWorld()) && handler.hasStarted() && ran < config.getEventDropChance())
 		{
-			((RunsafeItem) event.getCaught()).setItemStack(getEventFish());
+			((RunsafeItem) entity).setItemStack(getEventFish());
 			handler.registerCatch(player);
 		}
 	}
