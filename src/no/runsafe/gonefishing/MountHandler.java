@@ -1,15 +1,24 @@
 package no.runsafe.gonefishing;
 
+import no.runsafe.framework.api.IConfiguration;
+import no.runsafe.framework.api.IScheduler;
 import no.runsafe.framework.api.block.IBlock;
 import no.runsafe.framework.api.event.player.IPlayerRightClick;
+import no.runsafe.framework.api.event.plugin.IConfigurationChanged;
 import no.runsafe.framework.api.player.IPlayer;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MountHandler implements IPlayerRightClick
+public class MountHandler implements IPlayerRightClick, IConfigurationChanged
 {
+	public MountHandler(IScheduler scheduler)
+	{
+		this.scheduler = scheduler;
+	}
+
 	public RunsafeMeta getMountItem()
 	{
 		if (item == null)
@@ -37,11 +46,38 @@ public class MountHandler implements IPlayerRightClick
 	{
 		if (usingItem != null && isMountItem(usingItem))
 		{
+			final String playerName = player.getName();
+			if (playerCooldowns.contains(playerName))
+			{
+				player.sendColouredMessage("&cThat item is still on cooldown!");
+				return false;
+			}
+
 			new SquidMount(player.getWorld(), player);
+
+			playerCooldowns.add(playerName); // Register the player as on-cooldown
+			scheduler.startAsyncTask(new Runnable()
+			{
+				@Override
+				public void run()
+				{
+					playerCooldowns.remove(playerName);
+				}
+			}, squidCooldown);
+
 			return false;
 		}
 		return true;
 	}
 
+	@Override
+	public void OnConfigurationChanged(IConfiguration config)
+	{
+		squidCooldown = config.getConfigValueAsInt("squidCooldown");
+	}
+
 	private RunsafeMeta item;
+	private final IScheduler scheduler;
+	private final List<String> playerCooldowns = new ArrayList<String>(0);
+	private int squidCooldown;
 }

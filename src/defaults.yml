@@ -9,3 +9,4 @@ lootDropChance: 50
 eventDropChance: 70
 fishToWin: 10
 eventWorld: spawn
+squidCooldown: 5
