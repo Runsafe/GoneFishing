@@ -31,6 +31,12 @@ public class SquidMount extends EntityPig
 	}
 
 	@Override
+	protected Item getLoot()
+	{
+		return null; // No, loot is bad.
+	}
+
+	@Override
 	public void e()
 	{
 		ILocation playerLocation = player.getLocation();
