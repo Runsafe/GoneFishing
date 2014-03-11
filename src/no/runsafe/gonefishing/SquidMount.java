@@ -25,6 +25,13 @@ public class SquidMount extends EntityPig
 	}
 
 	@Override
+	protected void d(DamageSource damagesource, float f)
+	{
+		if (passenger != null && f < getHealth())
+			passenger.damageEntity(DamageSource.GENERIC, f - getHealth());
+	}
+
+	@Override
 	protected void dropDeathLoot(boolean flag, int i)
 	{
 		// Do nothing, we don't want loot.
@@ -122,8 +129,6 @@ public class SquidMount extends EntityPig
 		// We don't want people doing this.
 		return false;
 	}
-
-
 
 	private final IPlayer player;
 }
