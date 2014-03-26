@@ -1,6 +1,6 @@
 package no.runsafe.gonefishing;
 
-import net.minecraft.server.v1_7_R1.*;
+import net.minecraft.server.v1_7_R2.*;
 import no.runsafe.framework.api.ILocation;
 import no.runsafe.framework.api.IWorld;
 import no.runsafe.framework.api.player.IPlayer;
@@ -75,7 +75,7 @@ public class SquidMount extends EntityPig
 	@Override
 	public void e(float f, float f1)
 	{
-		X = 1F;
+		W = 1F;
 		lastYaw = yaw = passenger.yaw;
 		pitch = passenger.pitch * 0.5F;
 
@@ -83,10 +83,10 @@ public class SquidMount extends EntityPig
 		aP = aN = yaw;
 
 		f = ((EntityLiving) passenger).be * 0.5f;
-		f1 = ((EntityLiving) passenger).bf;
+		//f1 = ((EntityLiving) passenger).bf;
 
-		if (f1 <= 0.0F)
-			f1 *= 0.25F;
+		//if (f1 <= 0.0F)
+		// f1 *= 0.25F;
 
 		f *= 0.75F;
 		i(0F);
@@ -106,7 +106,7 @@ public class SquidMount extends EntityPig
 	}
 
 	@Override
-	protected String aU()
+	protected String aS()
 	{
 		return null;
 	}
