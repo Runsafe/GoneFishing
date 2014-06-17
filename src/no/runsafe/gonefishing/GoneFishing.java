@@ -29,6 +29,8 @@ public class GoneFishing extends RunsafeConfigurablePlugin
 		addComponent(ChordBook.class);
 		addComponent(FlintBoardingPass.class);
 		addComponent(FlintGold.class);
+		addComponent(FiggleShirt.class);
+		addComponent(DeadTorch.class);
 		addComponent(LootHandler.class);
 
 		// Register the squid mount.
