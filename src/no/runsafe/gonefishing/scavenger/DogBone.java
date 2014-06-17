@@ -3,7 +3,7 @@ package no.runsafe.gonefishing.scavenger;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
-public class DOGBONE implements IFishingLootItem
+public class DogBone implements IFishingLootItem
 {
 	@Override
 	public RunsafeMeta getItem()
