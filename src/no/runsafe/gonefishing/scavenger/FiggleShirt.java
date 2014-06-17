@@ -10,7 +10,7 @@ public class FiggleShirt implements IFishingLootItem
 	{
 		if (item == null)
 		{
-			item = Item.Combat.LEATHER_CHESTPLATE.getItem();
+			item = Item.Combat.Chestplate.Leather.getItem();
 			item.setAmount(1);
 			item.setDisplayName("§aLieutenant Figgle's Dirty Shirt");
 			item.addLore("§7This must have washed ashore after the crash.");
