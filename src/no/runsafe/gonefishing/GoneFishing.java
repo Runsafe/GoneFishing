@@ -33,6 +33,7 @@ public class GoneFishing extends RunsafeConfigurablePlugin
 		addComponent(SkallyTesticle.class);
 		addComponent(MikeHeart.class);
 		addComponent(JessePillow.class);
+		addComponent(FlintGold.class);
 		addComponent(DoctorRepellent.class);
 		addComponent(LootHandler.class);
 
