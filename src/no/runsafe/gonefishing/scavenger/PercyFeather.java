@@ -10,7 +10,7 @@ public class PercyFeather implements IFishingLootItem
 	{
 		if (item == null)
 		{
-			item = Item.Materials.FEATHER.getItem();
+			item = Item.Materials.Feather.getItem();
 			item.setAmount(1);
 			item.setDisplayName("§aPercy the Parrot's Feather");
 			item.addLore("§7The only remains from Percy.");
