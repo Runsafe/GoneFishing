@@ -29,6 +29,7 @@ public class GoneFishing extends RunsafeConfigurablePlugin
 		addComponent(ChordBook.class);
 		addComponent(FlintBoardingPass.class);
 		addComponent(FlintGold.class);
+		addComponent(FlintTicket.class);
 		addComponent(FiggleShirt.class);
 		addComponent(DeadTorch.class);
 		addComponent(LootHandler.class);
