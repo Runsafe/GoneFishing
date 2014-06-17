@@ -10,7 +10,7 @@ public class SeaWeed implements IFishingLootItem
 	{
 		if (item == null)
 		{
-			item = Item.Decoration.vine.getItem();
+			item = Item.Decoration.Vine.getItem();
 			item.setAmount(1);
 			item.setDisplayName("§aWashed up seaweed");
 			item.addLore("§7Eww this feels slimy.");
