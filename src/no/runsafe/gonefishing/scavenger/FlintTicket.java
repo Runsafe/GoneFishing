@@ -10,7 +10,7 @@ public class FlintTicket implements IFishingLootItem
 	{
 		if (item == null)
 		{
-			item = Item.Miscellaneous.paper.getItem();
+			item = Item.Miscellaneous.Paper.getItem();
 			item.setAmount(1);
 			item.setDisplayName("§6Flint Tickets");
 			item.addLore("§7Offical currency!");
