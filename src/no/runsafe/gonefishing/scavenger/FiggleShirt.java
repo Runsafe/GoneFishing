@@ -15,7 +15,7 @@ public class FiggleShirt implements IFishingLootItem
 			item.setDisplayName("§aLieutenant Figgle's Dirty Shirt");
 			item.addLore("§7This must have washed ashore after the crash.");
 			RunsafeLeatherArmor armor = (RunsafeLeatherArmor) item;
-                        armor.setColor(Integer.valueOf("DDFF00", 16));
+			armor.setColor(Integer.valueOf("DDFF00", 16));
 		}
 		return item;
 	}
