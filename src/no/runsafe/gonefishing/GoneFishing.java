@@ -26,16 +26,9 @@ public class GoneFishing extends RunsafeConfigurablePlugin
 
 		// Custom fishing loot
 		addComponent(LootConfig.class);
-		addComponent(DilapidatedBumTickler.class);
-		addComponent(BumbleHair.class);
 		addComponent(ChordBook.class);
-		addComponent(RbartelWeed.class);
 		addComponent(FlintBoardingPass.class);
-		addComponent(SkallyTesticle.class);
-		addComponent(MikeHeart.class);
-		addComponent(JessePillow.class);
 		addComponent(FlintGold.class);
-		addComponent(DoctorRepellent.class);
 		addComponent(LootHandler.class);
 
 		// Register the squid mount.
