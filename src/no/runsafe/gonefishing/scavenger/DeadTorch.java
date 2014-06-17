@@ -10,7 +10,7 @@ public class DeadTorch implements IFishingLootItem
 	{
 		if (item == null)
 		{
-			item = Item.Decoration.TORCH.getItem();
+			item = Item.Decoration.Torch.getItem();
 			item.setAmount(1);
 			item.setDisplayName("§cBurned out Torch");
 			item.addLore("§7The water put this torch out, looks like it won't light.");
