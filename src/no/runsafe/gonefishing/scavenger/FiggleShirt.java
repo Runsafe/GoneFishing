@@ -2,6 +2,7 @@ package no.runsafe.gonefishing.scavenger;
 
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
+import no.runsafe.framework.minecraft.item.meta.RunsafeLeatherArmor;
 
 public class FiggleShirt implements IFishingLootItem
 {
