@@ -10,7 +10,7 @@ public class CreamySoup implements IFishingLootItem
 	{
 		if (item == null)
 		{
-			item = Item.Cooked.MushroomSoup.getItem();
+			item = Item.Food.Cooked.MushroomSoup.getItem();
 			item.setAmount(1);
 			item.setDisplayName("§6Creamy's Nasty Outdated Soup");
 			item.addLore("§7You look down to see something moving in the soup.");
