@@ -13,7 +13,7 @@ public class DogBone implements IFishingLootItem
 			item = Item.Miscellaneous.Bone.getItem();
 			item.setAmount(1);
 			item.setDisplayName("§6DOG's Vacation Treat");
-			item.addLore("§7Yes even DOG likes to relax at the beach.");
+			item.addLore("§7Yes, even DOG likes to relax at the beach.");
 		}
 		return item;
 	}
