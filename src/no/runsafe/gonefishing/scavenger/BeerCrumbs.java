@@ -3,17 +3,17 @@ package no.runsafe.gonefishing.scavenger;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
-public class DoctorRepellent implements IFishingLootItem
+public class BeerCrumbs implements IFishingLootItem
 {
 	@Override
 	public RunsafeMeta getItem()
 	{
 		if (item == null)
 		{
-			item = Item.Food.Plant.Apple.getItem();
+			item = Item.Materials.Cocoa.getItem();
 			item.setAmount(1);
-			item.setDisplayName("Mddoctor Repellent");
-			item.addLore("§8Disgusting, smelly and covered in gunk.");
+			item.setDisplayName("§cSoggy Beer Crumbs");
+			item.addLore("§7What is this strange looking thing?");
 		}
 		return item;
 	}

@@ -3,17 +3,17 @@ package no.runsafe.gonefishing.scavenger;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
-public class SkallyTesticle implements IFishingLootItem
+public class CreamySoup implements IFishingLootItem
 {
 	@Override
 	public RunsafeMeta getItem()
 	{
 		if (item == null)
 		{
-			item = Item.Miscellaneous.Slimeball.getItem();
-			item.setDisplayName("Skalamandar's Left Testicle");
-			item.addLore("§8Rather sticky and seems to bounce..");
+			item = Item.Cooked.MushroomSoup.getItem();
 			item.setAmount(1);
+			item.setDisplayName("§6Creamy's Nasty Outdated Soup");
+			item.addLore("§7You look down to see something moving in the soup.");
 		}
 		return item;
 	}

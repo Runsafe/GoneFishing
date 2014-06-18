@@ -3,19 +3,19 @@ package no.runsafe.gonefishing.scavenger;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
-public class MikeHeart implements IFishingLootItem
+public class DeadTorch implements IFishingLootItem
 {
 	@Override
 	public RunsafeMeta getItem()
 	{
 		if (item == null)
 		{
-			item = Item.Materials.CharCoal.getItem();
+			item = Item.Decoration.Torch.getItem();
 			item.setAmount(1);
-			item.setDisplayName("MkX13's Heart");
-			item.addLore("§8Rock-hard, cold and smells like fish.");
+			item.setDisplayName("§cBurnt-out Torch");
+			item.addLore("§7The water put this torch out, looks like it won't light.");
 		}
-		return null;
+		return item;
 	}
 
 	private RunsafeMeta item;

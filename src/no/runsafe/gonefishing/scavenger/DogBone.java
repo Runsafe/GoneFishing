@@ -3,17 +3,17 @@ package no.runsafe.gonefishing.scavenger;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
-public class JessePillow implements IFishingLootItem
+public class DogBone implements IFishingLootItem
 {
 	@Override
 	public RunsafeMeta getItem()
 	{
 		if (item == null)
 		{
-			item = Item.BuildingBlock.Wool.White.getItem();
+			item = Item.Miscellaneous.Bone.getItem();
 			item.setAmount(1);
-			item.setDisplayName("Hesse's Soggy Pillow");
-			item.addLore("§8It's soggy from being in the water.. you hope.");
+			item.setDisplayName("§6DOG's Vacation Treat");
+			item.addLore("§7Yes, even DOG likes to relax at the beach.");
 		}
 		return item;
 	}
