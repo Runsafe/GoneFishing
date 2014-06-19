@@ -3,7 +3,7 @@ package no.runsafe.gonefishing.scavenger;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
-public class BeerCrumbs implements IFishingLootItem
+public class BeardCrumbs implements IFishingLootItem
 {
 	@Override
 	public RunsafeMeta getItem()
@@ -12,7 +12,7 @@ public class BeerCrumbs implements IFishingLootItem
 		{
 			item = Item.Materials.Cocoa.getItem();
 			item.setAmount(1);
-			item.setDisplayName("§cSoggy Beer Crumbs");
+			item.setDisplayName("§cSoggy Beard Crumbs");
 			item.addLore("§7What is this strange looking thing?");
 		}
 		return item;
