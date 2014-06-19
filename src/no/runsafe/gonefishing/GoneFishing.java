@@ -35,7 +35,7 @@ public class GoneFishing extends RunsafeConfigurablePlugin
 		addComponent(SeaWeed.class);
 		addComponent(CreamySoup.class);
 		addComponent(PercyFeather.class);
-		addComponent(BeerCrumbs.class);
+		addComponent(BeardCrumbs.class);
 		addComponent(DogBone.class);
 		addComponent(LootHandler.class);
 
