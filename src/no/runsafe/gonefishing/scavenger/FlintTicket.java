@@ -13,8 +13,8 @@ public class FlintTicket implements IFishingLootItem
 			item = Item.Miscellaneous.Paper.getItem();
 			item.setAmount(1);
 			item.setDisplayName("§6Flint Tickets");
-			item.addLore("§7Offical currency!");
-			item.addLore("§cOffical Currency at Captain Flint's Reef");
+			item.addLore("§7Official currency!");
+			item.addLore("§cOfficial Currency at Captain Flint's Reef");
 		}
 		return item;
 	}
