@@ -77,7 +77,7 @@ public class EventHandler
 			loot.setAmount(10);
 			winner.give(loot);
 			
-			RunsafeMeta loot = Item.Tool.FishingRod.getItem();
+			loot = Item.Tool.FishingRod.getItem();
 			loot.setAmount(1);
 			winner.give(loot);
 			
