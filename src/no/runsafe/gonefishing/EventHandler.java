@@ -76,6 +76,11 @@ public class EventHandler
 			RunsafeMeta loot = Item.Materials.Emerald.getItem();
 			loot.setAmount(10);
 			winner.give(loot);
+			
+			RunsafeMeta loot = Item.Tool.FishingRod.getItem();
+			loot.setAmount(1);
+			winner.give(loot);
+			
 		}
 		progress.clear(); // Clear all progress.
 		stopEvent(); // Stop the event.
