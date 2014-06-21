@@ -38,6 +38,8 @@ public class GoneFishing extends RunsafeConfigurablePlugin
 		addComponent(BeardCrumbs.class);
 		addComponent(DogBone.class);
 		addComponent(LootHandler.class);
+		addComponent(BoatDebris.class);
+		
 
 		// Register the squid mount.
 		EntityRegister.registerEntity(SquidMount.class, "SquidMount", 94);

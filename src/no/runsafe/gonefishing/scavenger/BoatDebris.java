@@ -3,17 +3,17 @@ package no.runsafe.gonefishing.scavenger;
 import no.runsafe.framework.minecraft.Item;
 import no.runsafe.framework.minecraft.item.meta.RunsafeMeta;
 
-public class SeaWeed implements IFishingLootItem
+public class BoatDebris implements IFishingLootItem
 {
 	@Override
 	public RunsafeMeta getItem()
 	{
 		if (item == null)
 		{
-			item = Item.Decoration.Vine.getItem();
+			item = Item.DoubleSlab.Plank.getItem();
 			item.setAmount(1);
-			item.setDisplayName("aWashed-up Seaweed");
-			item.addLore("7Eww this feels slimy.");
+			item.setDisplayName("6 Piece of Flint's Ship Debris");
+			item.addLore("7This looks dangerous.");
 		}
 		return item;
 	}
