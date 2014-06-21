@@ -14,7 +14,7 @@ public class FriendshipBracelets implements IFishingLootItem
 			item.setAmount(2);
 			item.setDisplayName("§bTattered Friendship Bracelet");
 			item.addLore("§7One of a set of friendship bracelets found deep in the ocean.");
-			item.addlore("§dShare one with a friend! <3");
+			item.addLore("§dShare one with a friend! <3");
 		}
 		return item;
 	}
