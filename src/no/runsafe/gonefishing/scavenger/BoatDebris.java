@@ -12,8 +12,8 @@ public class BoatDebris implements IFishingLootItem
 		{
 			item = Item.Unavailable.DoubleSlab.Plank.getItem();
 			item.setAmount(1);
-			item.setDisplayName("6 Piece of Flint's Ship Debris");
-			item.addLore("7This looks dangerous.");
+			item.setDisplayName("§6Piece of Flint's Ship Debris");
+			item.addLore("§7This looks dangerous.");
 		}
 		return item;
 	}
