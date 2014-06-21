@@ -10,7 +10,7 @@ public class BoatDebris implements IFishingLootItem
 	{
 		if (item == null)
 		{
-			item = Item.DoubleSlab.Plank.getItem();
+			item = Item.Unavailable.DoubleSlab.Plank.getItem();
 			item.setAmount(1);
 			item.setDisplayName("6 Piece of Flint's Ship Debris");
 			item.addLore("7This looks dangerous.");
