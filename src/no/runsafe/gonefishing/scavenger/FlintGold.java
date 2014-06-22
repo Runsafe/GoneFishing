@@ -11,7 +11,7 @@ public class FlintGold implements IFishingLootItem
 		if (item == null)
 		{
 			item = Item.Materials.GoldNugget.getItem();
-			item.setAmount(1);
+			item.setAmount(3);
 			item.setDisplayName("§6Captain Flint's Gold");
 			item.addLore("§3Looks like a piece of gold from the rusty treasure chest.");
 		}
