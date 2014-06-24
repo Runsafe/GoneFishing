@@ -12,7 +12,7 @@ public class ChordBook implements IFishingLootItem
 		{
 			item = Item.Special.Crafted.EnchantedBook.getItem();
 			item.setDisplayName("Mysterious Chord Book");
-			item.addLore("Its My Life - Bon Jovi");
+			item.addLore("Super Mario Bros Underwater");
 			item.setAmount(1);
 		}
 		return item;
