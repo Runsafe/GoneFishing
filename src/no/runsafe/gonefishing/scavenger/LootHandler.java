@@ -26,7 +26,7 @@ public class LootHandler implements IPlayerFishEvent
 	public void OnPlayerFish(RunsafePlayerFishEvent event)
 	{
 		RunsafeEntity entity = event.getCaught();
-		if (entity == null || !(entity instanceof RunsafeItem))
+		if (!(entity instanceof RunsafeItem))
 			return;
 
 		IPlayer player = event.getPlayer();

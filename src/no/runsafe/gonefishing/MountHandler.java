@@ -56,14 +56,7 @@ public class MountHandler implements IPlayerRightClick, IConfigurationChanged
 			new SquidMount(player.getWorld(), player);
 
 			playerCooldowns.add(playerName); // Register the player as on-cooldown
-			scheduler.startAsyncTask(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					playerCooldowns.remove(playerName);
-				}
-			}, squidCooldown);
+			scheduler.startAsyncTask(() -> playerCooldowns.remove(playerName), squidCooldown);
 
 			return false;
 		}
@@ -78,6 +71,6 @@ public class MountHandler implements IPlayerRightClick, IConfigurationChanged
 
 	private RunsafeMeta item;
 	private final IScheduler scheduler;
-	private final List<String> playerCooldowns = new ArrayList<String>(0);
+	private final List<String> playerCooldowns = new ArrayList<>(0);
 	private int squidCooldown;
 }
