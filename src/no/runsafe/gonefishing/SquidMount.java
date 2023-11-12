@@ -37,8 +37,8 @@ public class SquidMount extends EntityPig
 	@Override
 	protected void d(DamageSource source, float damageValue)
 	{
-		if (passenger != null && f < getHealth())
-			passenger.damageEntity(DamageSource.GENERIC, f - getHealth());
+		if (passenger != null && damageValue < getHealth())
+			passenger.damageEntity(DamageSource.GENERIC, damageValue - getHealth());
 	}
 
 	@Override
