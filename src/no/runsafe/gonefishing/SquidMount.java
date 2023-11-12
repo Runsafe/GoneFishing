@@ -24,8 +24,18 @@ public class SquidMount extends EntityPig
 		}
 	}
 
+	/**
+	 * Damage the entity.
+	 * Overrides method in EntityLiving.class
+	 * Names of this function in various spigot versions:
+	 * v1_7: d
+	 * v1_12_R1: damageEntity0
+	 * @param source damage source
+	 * @param damageValue Amount of damage
+	 * @return 1.12: boolean, True if damaged, false if not damaged.
+	 */
 	@Override
-	protected void d(DamageSource damagesource, float f)
+	protected void d(DamageSource source, float damageValue)
 	{
 		if (passenger != null && f < getHealth())
 			passenger.damageEntity(DamageSource.GENERIC, f - getHealth());
@@ -43,6 +53,17 @@ public class SquidMount extends EntityPig
 		return null; // No, loot is bad.
 	}
 
+	/**
+	 * Update method.
+	 * Names of this function in various spigot versions:
+	 * v1_7_R3: e
+	 * v1_12_R1: n
+	 * -
+	 * obfuscated things used:
+	 * isInWater:
+	 * v1_7_R3: M()
+	 * v1_12_R1: aq()
+	 */
 	@Override
 	public void e()
 	{
@@ -72,6 +93,28 @@ public class SquidMount extends EntityPig
 		super.e();
 	}
 
+	/**
+	 * Overrides method in EntityLiving.class
+	 * Names of this function in various spigot versions:
+	 * v1_7: e(float f, float f1)
+	 * v1.12: a(float f, float f1, float f2)
+	 * -
+	 * Obfuscated stuff:
+	 * v1_7: W
+	 * v1_12: P
+	 * -
+	 * v1_7: b(yaw, pitch)
+	 * v1_12: setYawPitch(yaw, pitch)
+	 * -
+	 * v1_7: ap
+	 * v1_12: aQ
+	 * -
+	 * v1_7: aN
+	 * v1_12: aO
+	 * -
+	 * v1_7: .be
+	 * v1_12: .bg
+	 */
 	@Override
 	public void e(float f, float f1)
 	{
@@ -93,30 +136,49 @@ public class SquidMount extends EntityPig
 		super.e(f, f1);
 	}
 
+	/**
+	 * Gets a sound.
+	 * @return sound to make
+	 */
 	@Override
 	protected String t()
 	{
 		return null;
 	}
 
+	/**
+	 * Gets a sound.
+	 * @return sound to make
+	 */
 	@Override
 	protected String aT()
 	{
 		return null;
 	}
 
+	/**
+	 * Gets the death sound.
+	 * @return sound to make
+	 */
 	@Override
 	protected String aS()
 	{
 		return null;
 	}
 
+	/**
+	 * makes walking around sounds
+	 */
 	@Override
 	protected void a(int i, int j, int k, Block block)
 	{
 		// Do nothing.
 	}
 
+	/**
+	 * handles this entity being struck by lightning.
+	 * @param entitylightning lightning
+	 */
 	@Override
 	public void a(EntityLightning entitylightning)
 	{
