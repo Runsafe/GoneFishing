@@ -1,6 +1,6 @@
 package no.runsafe.gonefishing;
 
-import net.minecraft.server.v1_7_R3.*;
+import net.minecraft.server.v1_12_R1.*;
 import no.runsafe.framework.api.ILocation;
 import no.runsafe.framework.api.IWorld;
 import no.runsafe.framework.api.player.IPlayer;
@@ -18,9 +18,10 @@ public class SquidMount extends EntityPig
 
 		if (rawWorld != null && mounterLocation != null && player != null)
 		{
+			setSilent(true);
 			setPosition(mounterLocation.getX(), mounterLocation.getY(), mounterLocation.getZ());
 			rawWorld.addEntity(this);
-			player.setPassengerOf(this);
+			player.startRiding(this);
 		}
 	}
 
@@ -35,10 +36,12 @@ public class SquidMount extends EntityPig
 	 * @return 1.12: boolean, True if damaged, false if not damaged.
 	 */
 	@Override
-	protected void d(DamageSource source, float damageValue)
+	protected boolean damageEntity0(DamageSource source, float damageValue)
 	{
-		if (passenger != null && damageValue < getHealth())
-			passenger.damageEntity(DamageSource.GENERIC, damageValue - getHealth());
+		if (!passengers.isEmpty() && damageValue < getHealth())
+			for (Entity passenger : passengers)
+				passenger.damageEntity(DamageSource.GENERIC, damageValue - getHealth());
+		return true;
 	}
 
 	@Override
@@ -65,10 +68,10 @@ public class SquidMount extends EntityPig
 	 * v1_12_R1: aq()
 	 */
 	@Override
-	public void e()
+	public void n()
 	{
 		ILocation playerLocation = player.getLocation();
-		if (player.isDead() || !player.isOnline() || passenger == null || playerLocation == null || !passenger.getName().equals(player.getName()))
+		if (player.isDead() || !player.isOnline() || passengers.isEmpty() || playerLocation == null || !passengers.get(0).getName().equals(player.getName()))
 		{
 			setHealth(0); // Kill the squid.
 			return;
@@ -76,7 +79,7 @@ public class SquidMount extends EntityPig
 
 		int i = getAirTicks();
 
-		if (isAlive() && !M())
+		if (isAlive() && !aq())
 		{
 			--i;
 			setAirTicks(i);
@@ -90,7 +93,7 @@ public class SquidMount extends EntityPig
 		{
 			setAirTicks(300);
 		}
-		super.e();
+		super.n();
 	}
 
 	/**
@@ -102,9 +105,6 @@ public class SquidMount extends EntityPig
 	 * Obfuscated stuff:
 	 * v1_7_R3: W
 	 * v1_12_R1: P
-	 * -
-	 * v1_7_R3: b(yaw, pitch)
-	 * v1_12_R1: setYawPitch(yaw, pitch)
 	 * -
 	 * v1_7_R3: ap
 	 * v1_12_R1: aQ
@@ -119,75 +119,32 @@ public class SquidMount extends EntityPig
 	 * v1_12_R1: k(float)
 	 */
 	@Override
-	public void e(float f, float f1)
+	public void a(float f, float f1, float f2)
 	{
-		W = 1F;
-		lastYaw = yaw = passenger.yaw;
-		pitch = passenger.pitch * 0.5F;
+		P = 1F;
+		lastYaw = yaw = passengers.get(0).yaw;
+		pitch = passengers.get(0).pitch * 0.5F;
 
-		b(yaw, pitch);
-		aP = aN = yaw;
+		setYawPitch(yaw, pitch);
+		aQ = aO = yaw;
 
-		f = ((EntityLiving) passenger).be * 0.5f;
+		f = ((EntityLiving) passengers.get(0)).bg * 0.5f;
 		//f1 = ((EntityLiving) passenger).bf;
 
 		//if (f1 <= 0.0F)
 		// f1 *= 0.25F;
 
 		f *= 0.75F;
-		i(0F);
-		super.e(f, f1);
-	}
-
-	/**
-	 * Gets a sound.
-	 * @return sound to make
-	 */
-	@Override
-	protected String t()
-	{
-		return null;
-	}
-
-	/**
-	 * Gets a sound.
-	 * @return sound to make
-	 */
-	@Override
-	protected String aT()
-	{
-		return null;
-	}
-
-	/**
-	 * Gets the death sound.
-	 * @return sound to make
-	 */
-	@Override
-	protected String aS()
-	{
-		return null;
-	}
-
-	/**
-	 * makes walking around sounds
-	 */
-	@Override
-	protected void a(int i, int j, int k, Block block)
-	{
-		// Do nothing.
+		k(0F);
+		super.a(f, f1, f2);
 	}
 
 	/**
 	 * handles this entity being struck by lightning.
 	 * @param entitylightning lightning
-	 * -
-	 * Names of this function in various spigot versions:
-	 * v1_7_R3: a(EntityLightning entitylightning)
-	 * v1_12_R1: onLightningStrike(EntityLightning entitylightning)
 	 */
 	@Override
-	public void a(EntityLightning entitylightning)
+	public void onLightningStrike(EntityLightning entitylightning)
 	{
 		// Do nothing.
 	}
@@ -203,7 +160,7 @@ public class SquidMount extends EntityPig
 	 * v1_12_R1: a(EntityHuman human, EnumHand hand)
 	 */
 	@Override
-	public boolean a(EntityHuman entityhuman)
+	public boolean a(EntityHuman entityhuman, EnumHand hand)
 	{
 		// We don't want people doing this.
 		return false;
