@@ -28,7 +28,7 @@ public class SquidMount extends EntityPig
 	 * Damage the entity.
 	 * Overrides method in EntityLiving.class
 	 * Names of this function in various spigot versions:
-	 * v1_7: d
+	 * v1_7_R3: d
 	 * v1_12_R1: damageEntity0
 	 * @param source damage source
 	 * @param damageValue Amount of damage
@@ -96,24 +96,27 @@ public class SquidMount extends EntityPig
 	/**
 	 * Overrides method in EntityLiving.class
 	 * Names of this function in various spigot versions:
-	 * v1_7: e(float f, float f1)
-	 * v1.12: a(float f, float f1, float f2)
+	 * v1_7_R3: e(float f, float f1)
+	 * v1.12_R1: a(float f, float f1, float f2)
 	 * -
 	 * Obfuscated stuff:
-	 * v1_7: W
-	 * v1_12: P
+	 * v1_7_R3: W
+	 * v1_12_R1: P
 	 * -
-	 * v1_7: b(yaw, pitch)
-	 * v1_12: setYawPitch(yaw, pitch)
+	 * v1_7_R3: b(yaw, pitch)
+	 * v1_12_R1: setYawPitch(yaw, pitch)
 	 * -
-	 * v1_7: ap
-	 * v1_12: aQ
+	 * v1_7_R3: ap
+	 * v1_12_R1: aQ
 	 * -
-	 * v1_7: aN
-	 * v1_12: aO
+	 * v1_7_R3: aN
+	 * v1_12_R1: aO
 	 * -
-	 * v1_7: .be
-	 * v1_12: .bg
+	 * v1_7_R3: .be
+	 * v1_12_R1: .bg
+	 * -
+	 * v1_7_R3: i(float)
+	 * v1_12_R1: k(float)
 	 */
 	@Override
 	public void e(float f, float f1)
@@ -178,6 +181,10 @@ public class SquidMount extends EntityPig
 	/**
 	 * handles this entity being struck by lightning.
 	 * @param entitylightning lightning
+	 * -
+	 * Names of this function in various spigot versions:
+	 * v1_7_R3: a(EntityLightning entitylightning)
+	 * v1_12_R1: onLightningStrike(EntityLightning entitylightning)
 	 */
 	@Override
 	public void a(EntityLightning entitylightning)
@@ -185,6 +192,16 @@ public class SquidMount extends EntityPig
 		// Do nothing.
 	}
 
+	/**
+	 * Handles a player mounting this entity.
+	 * Overrides method in EntityPig.class
+	 * @param entityhuman human
+	 * @return false
+	 * -
+	 * Names of this function in various spigot versions:
+	 * v1_7_R3: a(EntityHuman human)
+	 * v1_12_R1: a(EntityHuman human, EnumHand hand)
+	 */
 	@Override
 	public boolean a(EntityHuman entityhuman)
 	{
