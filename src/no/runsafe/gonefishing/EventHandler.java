@@ -22,25 +22,21 @@ public class EventHandler
 	{
 		step = config.getStepCount();
 		final int stepLength = config.getStepLength();
-		timer = scheduler.startSyncRepeatingTask(new Runnable()
+		timer = scheduler.startSyncRepeatingTask(() ->
 		{
-			@Override
-			public void run()
+			// Check what step we're at.
+			if (step == 0)
 			{
-				// Check what step we're at.
-				if (step == 0)
-				{
-					// We are at zero step, start the event.
-					hasStarted = true; // Flag the event as started.
-					server.broadcastMessage(config.getStartedMessage()); // Broadcast started message.
-					startEvent(); // Start the event.
-				}
-				else
-				{
-					// We're still timing down, broadcast the next countdown message.
-					server.broadcastMessage(config.getStartingMessage().replaceAll("<time>", "" + (stepLength * step) / 60));
-					step--; // Fall down to the next step.
-				}
+				// We are at zero step, start the event.
+				hasStarted = true; // Flag the event as started.
+				server.broadcastMessage(config.getStartedMessage()); // Broadcast started message.
+				startEvent(); // Start the event.
+			}
+			else
+			{
+				// We're still timing down, broadcast the next countdown message.
+				server.broadcastMessage(config.getStartingMessage().replaceAll("<time>", "" + (stepLength * step) / 60));
+				step--; // Fall down to the next step.
 			}
 		}, 0, config.getStepLength());
 		isRunning = true; // Flag as running.
@@ -49,14 +45,7 @@ public class EventHandler
 	private void startEvent()
 	{
 		scheduler.cancelTask(timer);
-		timer = scheduler.startAsyncTask(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				concludeEvent(null);
-			}
-		}, config.getEventLength());
+		timer = scheduler.startAsyncTask(() -> concludeEvent(null), config.getEventLength());
 	}
 
 	private void concludeEvent(IPlayer winner)
@@ -120,6 +109,6 @@ public class EventHandler
 	private final IScheduler scheduler;
 	private final EventConfig config;
 	private final IServer server;
-	private final ConcurrentHashMap<String, Integer> progress = new ConcurrentHashMap<String, Integer>(0);
+	private final ConcurrentHashMap<String, Integer> progress = new ConcurrentHashMap<>(0);
 	private final MountHandler mountHandler;
 }
