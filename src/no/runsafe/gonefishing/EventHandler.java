@@ -22,10 +22,15 @@ public class EventHandler
 	{
 		step = config.getStepCount();
 		final int stepLength = config.getStepLength();
+
+		GoneFishing.debugger.debugFine("Setting up event with step:" + step + " and stepLength:" + stepLength);
+
 		timer = scheduler.startSyncRepeatingTask(() ->
 		{
+			GoneFishing.debugger.debugFine("Iterating through step cycle. On step:" + step);
+
 			// Check what step we're at.
-			if (step == 0)
+			if (step <= 0)
 			{
 				// We are at zero step, start the event.
 				hasStarted = true; // Flag the event as started.
@@ -44,6 +49,7 @@ public class EventHandler
 
 	private void startEvent()
 	{
+		GoneFishing.debugger.debugFine("Starting event.");
 		scheduler.cancelTask(timer);
 		timer = scheduler.startAsyncTask(() -> concludeEvent(null), config.getEventLength());
 	}
@@ -95,6 +101,7 @@ public class EventHandler
 	public void registerCatch(IPlayer player)
 	{
 		String playerName = player.getName();
+		GoneFishing.debugger.debugFine("Registered catch for:" + playerName);
 		int newProgress = progress.containsKey(playerName) ? progress.get(playerName) + 1 : 1;
 		if (newProgress == config.getFishToWin())
 			concludeEvent(player);
