@@ -2,6 +2,7 @@ package no.runsafe.gonefishing;
 
 import no.runsafe.framework.RunsafeConfigurablePlugin;
 import no.runsafe.framework.api.command.Command;
+import no.runsafe.framework.api.log.IDebug;
 import no.runsafe.framework.features.Commands;
 import no.runsafe.framework.features.Events;
 import no.runsafe.framework.tools.nms.EntityRegister;
@@ -12,9 +13,13 @@ import no.runsafe.gonefishing.scavenger.*;
 
 public class GoneFishing extends RunsafeConfigurablePlugin
 {
+	public static IDebug debugger;
+
 	@Override
 	protected void pluginSetup()
 	{
+		debugger = getComponent(IDebug.class);
+
 		// Framework features
 		addComponent(Commands.class);
 		addComponent(Events.class);
