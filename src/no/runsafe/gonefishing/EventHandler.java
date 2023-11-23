@@ -25,7 +25,7 @@ public class EventHandler
 		timer = scheduler.startSyncRepeatingTask(() ->
 		{
 			// Check what step we're at.
-			if (step == 0)
+			if (step <= 0)
 			{
 				// We are at zero step, start the event.
 				hasStarted = true; // Flag the event as started.
