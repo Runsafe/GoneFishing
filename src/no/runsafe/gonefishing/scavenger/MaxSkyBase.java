@@ -10,7 +10,7 @@ public class MaxSkyBase implements IFishingLootItem
         {
                 if (item == null)
                 {
-                        item = Block.Minecraft.Cobblestone.getItem();
+                        item = block.minecraft.cobblestone.getItem();
                         item.setAmount(1);
                         item.setDisplayName("§cPiece of Max8abugs Skybase");
                         item.addLore("§3This must have washed up from a grief.");

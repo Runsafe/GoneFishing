@@ -10,7 +10,7 @@ public class Charlie implements IFishingLootItem
     {
         if (item == null)
         {
-            item = Item.Minecraft.Rabbit_Hide.getItem();
+            item = item.minecraft.rabbit_hide.getItem();
             item.setAmount(1);
             item.setDisplayName("§aCharlies Hide");
             item.addLore("§7Gone but never forgotten.");
