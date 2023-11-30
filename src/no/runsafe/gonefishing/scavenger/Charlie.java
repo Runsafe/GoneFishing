@@ -12,7 +12,7 @@ public class Charlie implements IFishingLootItem
         {
             item = Item.Materials.RabbitHide.getItem();
             item.setAmount(1);
-            item.setDisplayName("§aCharlies Hide");
+            item.setDisplayName("§aCharles Hide");
             item.addLore("§7Gone but never forgotten.");
         }
         return item;
