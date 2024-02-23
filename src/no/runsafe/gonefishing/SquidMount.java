@@ -27,7 +27,7 @@ public class SquidMount extends EntityPig
 
 	/**
 	 * Damage the entity.
-	 * Overrides method in EntityLiving.class
+	 * Overrides method in {@link EntityLiving}
 	 * Names of this function in various spigot versions:
 	 * v1_7_R3: d
 	 * v1_12_R1: damageEntity0
@@ -141,18 +141,18 @@ public class SquidMount extends EntityPig
 
 	/**
 	 * handles this entity being struck by lightning.
-	 * @param entitylightning lightning
+	 * @param entityLightning lightning
 	 */
 	@Override
-	public void onLightningStrike(EntityLightning entitylightning)
+	public void onLightningStrike(EntityLightning entityLightning)
 	{
 		// Do nothing.
 	}
 
 	/**
 	 * Handles a player mounting this entity.
-	 * Overrides method in EntityPig.class
-	 * @param entityhuman human
+	 * Overrides method in {@link EntityPig}
+	 * @param entityHuman human
 	 * @return false
 	 * -
 	 * Names of this function in various spigot versions:
@@ -160,7 +160,7 @@ public class SquidMount extends EntityPig
 	 * v1_12_R1: a(EntityHuman human, EnumHand hand)
 	 */
 	@Override
-	public boolean a(EntityHuman entityhuman, EnumHand hand)
+	public boolean a(EntityHuman entityHuman, EnumHand hand)
 	{
 		// We don't want people doing this.
 		return false;
